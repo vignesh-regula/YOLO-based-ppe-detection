@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# YOLO-based PPE Detection System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project is a Personal Protective Equipment (PPE) detection system powered by YOLO (You Only Look Once) via the Ultralytics library. It features a React-based frontend for interacting with the system and a Flask-based backend server handling image and video processing using computer vision to enhance safety monitoring and compliance in industrial environments.
 
-## Available Scripts
+## Features
+- **Image Processing**: Upload and process images to detect PPE compliance.
+- **Video Processing**: Analyze video files or streams for continuous PPE detection.
+- **RESTful API**: Flask backend providing endpoints for user authentication, image, and video analysis.
+- **Modern UI**: Frontend built with React and React Router for a seamless user experience.
 
-In the project directory, you can run:
+## Technology Stack
 
-### `npm start`
+### Backend
+- **Framework**: Flask, Flask-CORS
+- **Computer Vision**: OpenCV (`opencv-python`)
+- **Machine Learning**: Ultralytics YOLO
+- **Other Utilities**: NumPy, Pillow
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- **Framework**: React.js
+- **Routing**: React Router DOM
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
+```text
+/
+├── backend-server/          # Flask backend application
+│   ├── app/                 # Main application module
+│   │   ├── routes/          # API endpoint handlers (auth, image, video)
+│   │   ├── services/        # Core processing logic (yolo_service)
+│   ├── requirements.txt     # Python dependencies
+│   └── run.py               # Application entry point
+│
+└── frontend-react/          # React frontend application
+    ├── src/                 # React source files
+    ├── public/              # Public static assets
+    └── package.json         # Node.js dependencies
+```
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Python 3.x
+- Node.js & npm
 
-### `npm run build`
+### Running the Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Navigate to the backend directory:
+   ```bash
+   cd backend-server
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### `npm run eject`
+4. Start the Flask server:
+   ```bash
+   python run.py
+   ```
+   *The backend will typically start on `http://localhost:5000`.*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the Frontend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend-react
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Start the React development server:
+   ```bash
+   npm start
+   ```
+   *The frontend will run on `http://localhost:3000` and proxy API requests to the backend.*
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
